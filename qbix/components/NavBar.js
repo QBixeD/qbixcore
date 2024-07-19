@@ -2,7 +2,8 @@ import React from 'react'
 
 const NavBar = () => {
   return (
-    <nav>;
+
+    <nav>
 <head>
     <meta charset="UTF-8"></meta>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
@@ -26,10 +27,10 @@ const NavBar = () => {
                 <a href="#" class="text-white hover:text-gray-400">Trending</a>
                 <a href="#" class="text-white hover:text-gray-400">Subscriptions</a>
                 <a href="#" class="text-white hover:text-gray-400">Library</a>
-                <a href="#" class="text-white hover:text-gray-400">Upload</a>
+                <a href="/upload" class="text-white hover:text-gray-400">Upload</a>
             </div>
         </div>
-        <div class="md:hidden" id="mobile-menu" style={{"display: none;"}}>
+        <div className={`md:hidden 'block' : 'hidden'}`} id="mobile-menu">
             <a href="#" class="block text-white px-2 py-1 hover:bg-gray-700">Home</a>
             <a href="#" class="block text-white px-2 py-1 hover:bg-gray-700">Trending</a>
             <a href="#" class="block text-white px-2 py-1 hover:bg-gray-700">Subscriptions</a>
@@ -39,9 +40,9 @@ const NavBar = () => {
     </nav>
 
     {/*<!-- Hero Section -->*/}
-    <section class="bg-cover bg-center h-64" style={{"background-image: url('https://via.placeholder.com/1280x720')"}}></section>
+    <section class="bg-cover bg-center h-64"></section><div style={{ backgroundImage: 'url("https://via.placeholder.com/1280x720")' }}></div>
         <div class="container mx-auto h-full flex items-center justify-center">
-            <h1 class="text-4xl font-bold bg-gray-800 bg-opacity-75 p-4 rounded">Welcome to QbixStream drama</h1>
+            <h1 class="text-2xl font-bold bg-gray-800 bg-opacity-75 p-4 rounded">QbixStream</h1>
         </div>
    
 
@@ -50,7 +51,7 @@ const NavBar = () => {
         {/*<!-- Video Grid -->*/}
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {/*<!-- Video Card -->*/}
-            <div class="bg-gray-800 p-4 rounded-lg shadow-lg">
+            <div class="bg-green-700 p-4 rounded-lg shadow-lg">
                 <video controls class="w-full h-48 rounded">
                     <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4"></source>
                     Your browser does not support the video tag.
@@ -60,7 +61,7 @@ const NavBar = () => {
             </div>
             {/*<!-- Repeat for more videos -->*/}
             {/*<!-- Video Card -->*/}
-            <div class="bg-gray-800 p-4 rounded-lg shadow-lg">
+            <div class="bg-green-700 p-2 rounded-lg shadow-lg">
                 <video controls class="w-full h-48 rounded">
                     <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4"></source>
                     Your browser does not support the video tag.
@@ -69,19 +70,20 @@ const NavBar = () => {
                 <p class="mt-1 text-gray-400">Description of the video content goes here.</p>
             </div>
             {/*<!-- Video Card -->*/}
-            <div class="bg-gray-800 p-4 rounded-lg shadow-lg">
+            <div class="bg-green-700 p-2 rounded-lg shadow-lg">
                 <video controls class="w-full h-48 rounded">
                     <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4"></source>
                     Your browser does not support the video tag.
+                    
                 </video>
                 <h2 class="mt-2 text-xl font-bold">Video Title</h2>
                 <p class="mt-1 text-gray-400">Description of the video content goes here.</p>
             </div>
         </div>
     </div>
-</body>;
-        </nav>
-  );
+</body>
+    </nav>
+  )
 }
 
 export default NavBar
