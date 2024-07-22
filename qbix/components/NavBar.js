@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import React from 'react'
+import SubscriptionsButton from './SubscriptionsButton';
 
 const NavBar = () => {
   return (
@@ -27,7 +28,7 @@ const NavBar = () => {
             <div className="hidden md:flex space-x-4" id="navbar-menu">
                 <Link href="/" className="text-white hover:text-gray-400">Home</Link>
                 <Link href="trending" className="text-white hover:text-gray-400">Trending</Link>
-                <Link href="/subscription" className="text-white hover:text-gray-400">Subscriptions</Link>
+                <Link href="/subscriptions" className="text-white hover:text-gray-400">Subscriptions</Link>
                 <Link href="/Library" className="text-white hover:text-gray-400">Library</Link>
                 <Link href="/upload" className="text-white hover:text-gray-400">Upload</Link>
             </div>
