@@ -18,7 +18,7 @@ const SubscriptionPage = () => {
         <nav className="bg-black text-white p-4">
           <div className="container mx-auto flex justify-between items-center">
             <Link href="/" legacyBehavior>
-              <a className="text-2xl font-bold">MyQbix</a>
+              <a className="text-2xl font-bold">Subscriptions</a>
             </Link>
             <div className="hidden md:flex space-x-4">
               <Link href="/" legacyBehavior><a>Home</a></Link>
