@@ -2,10 +2,10 @@ import Head from 'next/head';
 import Link from 'next/link';
 import React, { useState, useEffect } from 'react';
 import { Line } from 'react-chartjs-2';
-import { Chart as ChartJS, LineElement, PointElement, CategoryScale, LinearScale, Title, Tooltip, Legend } from 'chart.js';
+import { Chart as ChartJS, LineElement, CategoryScale, LinearScale, Title, Tooltip, Legend } from 'chart.js';
 
 // Register ChartJS components
-ChartJS.register(LineElement, PointElement, CategoryScale, LinearScale, Title, Tooltip, Legend);
+ChartJS.register(LineElement, CategoryScale, LinearScale, Title, Tooltip, Legend);
 
 const TimeWatched = () => {
   const [time, setTime] = useState(0); // Time in seconds
@@ -14,7 +14,6 @@ const TimeWatched = () => {
   const [data, setData] = useState([]);
   const [autoplay, setAutoplay] = useState(true);
   const [reminder, setReminder] = useState(null);
-  const [moviesWatched, setMoviesWatched] = useState([]);
 
   useEffect(() => {
     if (isRunning) {
@@ -91,22 +90,6 @@ const TimeWatched = () => {
     },
   };
 
-  useEffect(() => {
-    // Mock fetching recently watched movies in the last 12 hours
-    const fetchMoviesWatched = () => {
-      const now = Date.now();
-      const movies = [
-        { title: 'Movie 1', watchedAt: now - 2 * 3600000 }, // 2 hours ago
-        { title: 'Movie 2', watchedAt: now - 4 * 3600000 }, // 4 hours ago
-        { title: 'Movie 3', watchedAt: now - 10 * 3600000 }, // 10 hours ago
-        { title: 'Movie 4', watchedAt: now - 14 * 3600000 }, // 14 hours ago, should not appear
-      ];
-      setMoviesWatched(movies.filter(movie => (now - movie.watchedAt) <= 12 * 3600000));
-    };
-
-    fetchMoviesWatched();
-  }, []);
-
   return (
     <>
       <Head>
@@ -120,7 +103,7 @@ const TimeWatched = () => {
         <nav className="bg-black max-auto px-4 py-2">
           <div className="container mx-auto flex justify-between items-center">
             <Link href="/" legacyBehavior>
-              <a className="text-2xl font-bold">Time Watched</a>
+              <a className="text-2xl font-bold">MyQbix</a>
             </Link>
             <div className="hidden md:flex space-x-4" id="navbar-menu">
               <Link href="/" legacyBehavior>
@@ -132,8 +115,8 @@ const TimeWatched = () => {
               <Link href="/subscriptions" legacyBehavior>
                 <a className="text-white hover:text-gray-400">Subscriptions</a>
               </Link>
-              <Link href="/premium-gems" legacyBehavior>
-                <a className="text-white hover:text-gray-400">Premium Gems</a>
+              <Link href="/Library" legacyBehavior>
+                <a className="text-white hover:text-gray-400">Library</a>
               </Link>
               <Link href="/upload" legacyBehavior>
                 <a className="text-white hover:text-gray-400">Upload</a>
@@ -146,6 +129,7 @@ const TimeWatched = () => {
         </nav>
 
         <div className="container mx-auto p-4">
+          <h1 className="text-3xl font-bold mb-4">Time Watched</h1>
           <div className="flex flex-col items-center space-y-4">
             <div className="text-center">
               <p className="text-xl font-semibold">Total Time Watched</p>
@@ -179,14 +163,6 @@ const TimeWatched = () => {
                 Autoplay is {autoplay ? 'Enabled' : 'Disabled'}.
               </p>
             </div>
-          </div>
-          <div className="mt-8">
-            <h2 className="text-2xl font-bold mb-4">Movies Watched in the Last 12 Hours</h2>
-            <ul className="list-disc list-inside">
-              {moviesWatched.map((movie, index) => (
-                <li key={index} className="text-lg">{movie.title}</li>
-              ))}
-            </ul>
           </div>
         </div>
       </div>

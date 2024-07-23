@@ -43,8 +43,8 @@ const Trending = () => {
               <Link legacyBehavior href="/subscriptions">
                 <a className="text-white hover:text-gray-400">Subscriptions</a>
               </Link>
-              <Link legacyBehavior href="/Library">
-                <a className="text-white hover:text-gray-400">Library</a>
+              <Link legacyBehavior href="/premium-gems">
+                <a className="text-white hover:text-gray-400">Premium Gems</a>
               </Link>
               <Link legacyBehavior href="/upload">
                 <a className="text-white hover:text-gray-400">Upload</a>

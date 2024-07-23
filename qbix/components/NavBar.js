@@ -34,8 +34,8 @@ const NavBar = () => {
               <Link href="/subscriptions" legacyBehavior>
                 <a className="text-white hover:text-gray-400">Subscriptions</a>
               </Link>
-              <Link href="/Library" legacyBehavior>
-                <a className="text-white hover:text-gray-400">Library</a>
+              <Link href="/premium-gems" legacyBehavior>
+                <a className="text-white hover:text-gray-400">Premium Gems</a>
               </Link>
               <Link href="/upload" legacyBehavior>
                 <a className="text-white hover:text-gray-400">Upload</a>
@@ -47,9 +47,7 @@ const NavBar = () => {
             <div className="md:hidden flex items-center">
               <Link href="/time-watched" legacyBehavior>
                 <a className="bg-blue-500 text-white font-semibold py-2 px-4 rounded-lg shadow-lg hover:bg-blue-600 transition duration-300 ease-in-out">
-                  Time Watched
-                </a>
-              </Link>
+                  Time Watched</a></Link>
             </div>
           </div>
         </nav>

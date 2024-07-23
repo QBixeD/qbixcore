@@ -24,7 +24,7 @@ const SubscriptionPage = () => {
               <Link href="/" legacyBehavior><a>Home</a></Link>
               <Link href="/trending" legacyBehavior><a>Trending</a></Link>
               <Link href="/subscriptions" legacyBehavior><a className="text-gray-400 hover:text-gray-200">Subscriptions</a></Link>
-              <Link href="/Library" legacyBehavior><a>Library</a></Link>
+              <Link href="/premium-gems" legacyBehavior><a>Premium Gems</a></Link>
               <Link href="/upload" legacyBehavior><a>Upload</a></Link>
             </div>
           </div>
