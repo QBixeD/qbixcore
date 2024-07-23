@@ -1,70 +1,77 @@
-import React, { useState } from 'react';
-import Head from 'next/head';
+// pages/subscriptions.js
+import Head from 'next/head'
+import Link from 'next/link'
+import React from 'react'
 
-const SubscriptionsPage = () => {
-  const [selectedPlan, setSelectedPlan] = useState(null);
-  const [showModal, setShowModal] = useState(false);
-
-  const plans = [
-    { name: 'Basic', price: '$5/month', features: ['Feature 1', 'Feature 2'] },
-    { name: 'Standard', price: '$10/month', features: ['Feature 1', 'Feature 2', 'Feature 3'] },
-    { name: 'Premium', price: '$20/month', features: ['Feature 1', 'Feature 2', 'Feature 3', 'Feature 4'] },
-  ];
-
-  const handleSubscribe = (plan) => {
-    setSelectedPlan(plan);
-    setShowModal(true);
-  };
-
+const SubscriptionPage = () => {
   return (
-    <div className="bg-gray-900 text-white min-h-screen flex items-center justify-center">
+    <>
       <Head>
-        <title>Subscriptions</title>
-        <meta name="description" content="Choose your subscription plan" />
+        <meta charSet="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Subscription Plans</title>
+        <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet" />
       </Head>
-      <div className="text-center">
-        <button
-          onClick={() => setShowModal(true)}
-          className="px-4 py-2 bg-indigo-500 text-white rounded hover:bg-indigo-600 focus:outline-none focus:ring focus:ring-indigo-500"
-        >
-          Subscribe
-        </button>
 
-        {showModal && (
-          <div className="fixed inset-0 bg-gray-800 bg-opacity-75 flex items-center justify-center z-50">
-            <div className="bg-white p-8 rounded-lg shadow-lg max-w-md w-full">
-              <h2 className="text-2xl font-bold mb-4">Choose a Subscription Plan</h2>
-              <div className="space-y-4">
-                {plans.map((plan) => (
-                  <div key={plan.name} className="border p-4 rounded-lg">
-                    <h3 className="text-xl font-bold">{plan.name}</h3>
-                    <p className="text-gray-600">{plan.price}</p>
-                    <ul className="list-disc list-inside text-gray-600 mb-4">
-                      {plan.features.map((feature, index) => (
-                        <li key={index}>{feature}</li>
-                      ))}
-                    </ul>
-                    <button
-                      onClick={() => handleSubscribe(plan)}
-                      className="px-4 py-2 bg-indigo-500 text-white rounded hover:bg-indigo-600 focus:outline-none focus:ring focus:ring-indigo-500"
-                    >
-                      Subscribe
-                    </button>
-                  </div>
-                ))}
-              </div>
-              <button
-                onClick={() => setShowModal(false)}
-                className="mt-4 px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600 focus:outline-none focus:ring focus:ring-gray-500"
-              >
-                Close
-              </button>
+      <div className="bg-black text-gray-900 min-h-screen">
+        {/* Navbar */}
+        <nav className="bg-black text-white p-4">
+          <div className="container mx-auto flex justify-between items-center">
+            <Link href="/" legacyBehavior>
+              <a className="text-2xl font-bold">MyQbix</a>
+            </Link>
+            <div className="hidden md:flex space-x-4">
+              <Link href="/" legacyBehavior><a>Home</a></Link>
+              <Link href="/trending" legacyBehavior><a>Trending</a></Link>
+              <Link href="/subscriptions" legacyBehavior><a className="text-gray-400 hover:text-gray-200">Subscriptions</a></Link>
+              <Link href="/Library" legacyBehavior><a>Library</a></Link>
+              <Link href="/upload" legacyBehavior><a>Upload</a></Link>
             </div>
           </div>
-        )}
-      </div>
-    </div>
-  );
-};
+        </nav>
 
-export default SubscriptionsPage;
+        {/* Subscription Plans */}
+        <div className="container mx-auto p-6">
+          <h1 className="text-4xl font-bold mb-6 text-center">Choose Your Plan</h1>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {/* Basic Plan */}
+            <div className="bg-white p-6 rounded-lg shadow-lg">
+              <h2 className="text-2xl font-bold mb-4">Basic Plan</h2>
+              <p className="text-lg mb-4">Access to basic content.</p>
+              <span className="text-xl font-semibold">R29/month</span>
+              <div className="mt-4">
+                <Link href="/subscribe/basic" legacyBehavior>
+                  <a className="bg-blue-500 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-600 transition duration-300 ease-in-out">Subscribe</a>
+                </Link>
+              </div>
+            </div>
+            {/* Standard Plan */}
+            <div className="bg-white p-6 rounded-lg shadow-lg">
+              <h2 className="text-2xl font-bold mb-4">Standard Plan</h2>
+              <p className="text-lg mb-4">Access to standard content and features.</p>
+              <span className="text-xl font-semibold">R59/month</span>
+              <div className="mt-4">
+                <Link href="/subscribe/standard" legacyBehavior>
+                  <a className="bg-blue-500 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-600 transition duration-300 ease-in-out">Subscribe</a>
+                </Link>
+              </div>
+            </div>
+            {/* Premium Plan */}
+            <div className="bg-white p-6 rounded-lg shadow-lg">
+              <h2 className="text-2xl font-bold mb-4">Premium Plan</h2>
+              <p className="text-lg mb-4">Access to all content and premium features.</p>
+              <span className="text-xl font-semibold">R120/month</span>
+              <div className="mt-4">
+                <Link href="/subscribe/premium" legacyBehavior>
+                  <a className="bg-blue-500 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-600 transition duration-300 ease-in-out">Subscribe</a>
+                </Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
+  )
+}
+
+export default SubscriptionPage
